@@ -40,13 +40,17 @@ int main(){
     cout<< node1->data<<endl<<node1->next<<endl;
 
     Node* head = node1;
-    
+
     display(head);
     InsertAtHead(head,12);
     display(head);
     InsertAtHead(head,13);
     display(head);
 
-
-
 }
+
+// output => 10 
+//           0
+//           10
+//           12 10
+//           13 12 10
