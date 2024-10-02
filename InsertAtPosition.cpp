@@ -16,6 +16,12 @@ class Node{
     }
 };
 
+void InsertAtHead(Node* &head, int d){
+    Node* temp = new Node(d);
+    temp->next=head;
+    head=temp;
+}
+
 void InsertAtTail(Node* &tail,int a){
     // Node* &tail => by reference coz we dont want to create a copy of it and work //
     Node* temp = new Node(a);
@@ -24,6 +30,12 @@ void InsertAtTail(Node* &tail,int a){
 }
 
 void InsertAtPosition(Node* &head,int pos, int a){
+    // what if user wants to insert as 1st index? we will use if statement. //
+    if(pos==1){
+        InsertAtHead(head,a);
+        return;
+    }
+
     // for traversing till n-1th position and storing its value, we use: //
     Node* temp = head;
     for(int i=1;i<pos-1;i++){
@@ -61,7 +73,7 @@ int main(){
     display(head);
     InsertAtTail(tail,13);
     display(head);
-    InsertAtPosition(head,4,40);
+    InsertAtPosition(head,2,40);
     display(head);
 
 }
@@ -71,4 +83,5 @@ int main(){
 //           10
 //           10 12
 //           10 12 13
+//           10 40 12 13
 
